@@ -9,6 +9,6 @@ public partial class Main : Node2D
 
 	public void onPlayPressed()
 	{
-		// start the game
+		GetTree().ChangeSceneToFile("res://world.tscn");
 	}
 }

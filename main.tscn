@@ -19,4 +19,5 @@ offset_right = 728.0
 offset_bottom = 536.0
 text = "Quit"
 
+[connection signal="pressed" from="Play" to="." method="onPlayPressed"]
 [connection signal="pressed" from="Quit" to="." method="onQuitPressed"]
