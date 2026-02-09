@@ -29,21 +29,22 @@ public partial class Player : CharacterBody2D {
 		base._PhysicsProcess(delta);
 		Vector2 velocity = Velocity;
 
-		HandlePassiveMovement(velocity, delta);
+		velocity = HandlePassiveMovement(velocity, delta);
 
-		if (this.isActive) HandleActiveMovement(velocity, delta);
+		if (isActive) HandleActiveMovement(velocity, delta);
 	}
 
-	public void HandlePassiveMovement(Vector2 velocity, double delta) {
+	public Vector2 HandlePassiveMovement(Vector2 velocity, double delta) {
 		// Add the gravity.
 		if (!IsOnFloor()) {
 			velocity += GetGravity() * (float) delta;
 		}
+		return velocity;
 	}
 
 	private void HandleActiveMovement(Vector2 velocity, double delta) {
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor()) {
+		if (Input.IsActionJustPressed("MoveUp") && IsOnFloor()) {
 			velocity.Y = JumpVelocity;
 		}
 
