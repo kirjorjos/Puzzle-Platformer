@@ -80,3 +80,6 @@ shape = SubResource("CapsuleShape2D_g1j88")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dl8di")
 animation = &"Run"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1377624514]
+zoom = Vector2(10, 10)

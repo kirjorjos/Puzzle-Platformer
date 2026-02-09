@@ -20,3 +20,9 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=935298559]
 position = Vector2(97, 47)
 shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="Panel" type="Panel" parent="StaticBody2D" unique_id=395378761]
+offset_left = -12.799999
+offset_top = 37.399998
+offset_right = 207.29999
+offset_bottom = 56.4
