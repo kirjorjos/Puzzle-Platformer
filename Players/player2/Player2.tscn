@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://7e8yx4nnexbv" path="res://Players/player2/Player2.cs" id="1_es7or"]
 [ext_resource type="Texture2D" uid="uid://jxjig5jq5bwm" path="res://assets/player2/idle/player-idle-1.svg" id="2_amc6l"]
+[ext_resource type="Texture2D" uid="uid://bvg0m7co656cg" path="res://assets/player2/fall/player-fall-1.svg" id="2_gov42"]
+[ext_resource type="Texture2D" uid="uid://bwc6ai1rfdcb4" path="res://assets/player2/fall/player-fall-2.svg" id="3_o5ljd"]
 [ext_resource type="Texture2D" uid="uid://o5dc2vgmtksx" path="res://assets/player2/idle/player-idle-2.svg" id="3_ucsqj"]
+[ext_resource type="Texture2D" uid="uid://c4rsml7bpiskp" path="res://assets/player2/fall/player-fall-3.svg" id="4_fh51v"]
 [ext_resource type="Texture2D" uid="uid://bjgqf4oupuehl" path="res://assets/player2/idle/player-idle-3.svg" id="4_ny0aa"]
 [ext_resource type="Texture2D" uid="uid://d0tiuiuxp1pfr" path="res://assets/player2/idle/player-idle-4.svg" id="5_gov42"]
+[ext_resource type="Texture2D" uid="uid://djdmnikxf253s" path="res://assets/player2/fall/player-fall-4.svg" id="5_wt8fc"]
 [ext_resource type="Texture2D" uid="uid://cv0ycqlv6jsjp" path="res://assets/player2/jump/player-jump-1.svg" id="6_o5ljd"]
 [ext_resource type="Texture2D" uid="uid://dhjkwcbxwvvfy" path="res://assets/player2/jump/player-jump-2.svg" id="7_fh51v"]
 [ext_resource type="Texture2D" uid="uid://dnu1wb3jju8yj" path="res://assets/player2/jump/player-jump-3.svg" id="8_wt8fc"]
@@ -18,6 +22,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mrihl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gov42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o5ljd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fh51v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wt8fc")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_amc6l")
@@ -79,7 +100,7 @@ shape = SubResource("CapsuleShape2D_4gpxk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1000911993]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_mrihl")
-animation = &"Run"
+animation = &"Fall"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=243160452]
 enabled = false

@@ -46,7 +46,12 @@ public partial class Player : CharacterBody2D {
 		// Handle Jump.
 		if (Input.IsActionJustPressed("MoveUp") && IsOnFloor()) {
 			velocity.Y = JumpVelocity;
+			animation.Play("Jump");
 		}
+
+		// flip the sprite when moving left
+		float horizontalDirection = Input.GetAxis("MoveLeft", "MoveRight");
+		GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = (horizontalDirection < 0);
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -57,7 +62,9 @@ public partial class Player : CharacterBody2D {
 		}
 		else {
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			if (velocity.Y == 0) animation.Play("Idle");
 		}
+		if (velocity.Y > 0) animation.Play("Fall");
 
 		Velocity = velocity;
 		MoveAndSlide();
