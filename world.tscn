@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://x5nlqo3uunam"]
 
 [ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://d2eygcfghkppp" path="res://World.cs" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_fj7yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(220, 20)
 
 [node name="World" type="Node2D" unique_id=559749560]
+script = ExtResource("1_tlwt5")
 
 [node name="Player2" parent="." unique_id=128728269 instance=ExtResource("2_fj7yv")]
 position = Vector2(44, 17)
