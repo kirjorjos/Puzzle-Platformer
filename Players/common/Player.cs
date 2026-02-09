@@ -29,6 +29,10 @@ public partial class Player : CharacterBody2D {
 		base._PhysicsProcess(delta);
 		Vector2 velocity = Velocity;
 
+		if (Input.IsActionJustPressed("SwapCameraMode") && isActive) {
+			camera.Enabled = !camera.Enabled;
+		}
+
 		velocity = HandlePassiveMovement(velocity, delta);
 
 		if (isActive) HandleActiveMovement(velocity, delta);
