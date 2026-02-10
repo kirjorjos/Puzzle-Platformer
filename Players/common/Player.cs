@@ -8,6 +8,7 @@ public partial class Player : CharacterBody2D {
 	protected bool isActive;
 	private AnimatedSprite2D animation;
 	private Camera2D camera;
+	private World world;
 
 	protected Player(bool startActive) {
 		isActive = startActive;
@@ -18,20 +19,24 @@ public partial class Player : CharacterBody2D {
 		animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animation.Play("Idle");
 		camera = GetNode<Camera2D>("Camera2D");
+		world = GetNode<World>("..");
 	}
 
 	public void toggleActive() {
-		camera.Enabled = !camera.Enabled;
+		GD.Print("hello1");
+		if (!world.isCameraZoomed()) return; // disallow switching when camera zoomed out
+		GD.Print("hello2");
+		toggleCamera();
 		isActive = !isActive;
+	}
+
+	public void toggleCamera() {
+		camera.Enabled = !camera.Enabled;
 	}
 
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 		Vector2 velocity = Velocity;
-
-		if (Input.IsActionJustPressed("SwapCameraMode") && isActive) {
-			camera.Enabled = !camera.Enabled;
-		}
 
 		velocity = HandlePassiveMovement(velocity, delta);
 
