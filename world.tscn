@@ -5,26 +5,58 @@
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_fj7yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
-size = Vector2(220, 20)
+size = Vector2(290, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(21, 99)
 
 [node name="World" type="Node2D" unique_id=559749560]
 script = ExtResource("1_tlwt5")
 
 [node name="Player2" parent="." unique_id=128728269 instance=ExtResource("2_fj7yv")]
-position = Vector2(44, 17)
+position = Vector2(146, 15)
 
 [node name="Player1" parent="." unique_id=1496653751 instance=ExtResource("1_f3sb7")]
-position = Vector2(13, 17)
+position = Vector2(115, 15)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=571738177]
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=935298559]
-position = Vector2(97, 47)
+position = Vector2(132, 47)
 shape = SubResource("RectangleShape2D_fj7yv")
 
 [node name="Panel" type="Panel" parent="StaticBody2D" unique_id=395378761]
 offset_left = -12.799999
 offset_top = 37.399998
-offset_right = 207.29999
+offset_right = 277.0
 offset_bottom = 56.4
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2024205489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=603904235]
+position = Vector2(-24, 8)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="Panel" type="Panel" parent="StaticBody2D2" unique_id=535217028]
+offset_left = -35.0
+offset_top = -42.0
+offset_right = -13.0
+offset_bottom = 57.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=262882498]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=102983014]
+position = Vector2(288, 10)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="Panel" type="Panel" parent="StaticBody2D3" unique_id=1488944105]
+offset_left = 277.0
+offset_top = -40.0
+offset_right = 299.0
+offset_bottom = 59.0
+
+[node name="Label" type="Label" parent="." unique_id=656755575]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Goof Ball Pit"
