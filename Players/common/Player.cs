@@ -36,18 +36,24 @@ public partial class Player : CharacterBody2D {
 
 		velocity = HandlePassiveMovement(velocity, delta);
 
-		if (isActive) HandleActiveMovement(velocity, delta);
+		if (isActive) velocity = HandleActiveMovement(velocity, delta);
+
+		MoveAndSlide();
+		Velocity = velocity;
+
+		
 	}
 
 	public Vector2 HandlePassiveMovement(Vector2 velocity, double delta) {
 		// Add the gravity.
+		GD.Print(isActive);
 		if (!IsOnFloor()) {
 			velocity += GetGravity() * (float) delta;
 		}
 		return velocity;
 	}
 
-	private void HandleActiveMovement(Vector2 velocity, double delta) {
+	private Vector2 HandleActiveMovement(Vector2 velocity, double delta) {
 		// Handle Jump.
 		if (Input.IsActionJustPressed("MoveUp") && IsOnFloor()) {
 			velocity.Y = JumpVelocity;
@@ -71,7 +77,7 @@ public partial class Player : CharacterBody2D {
 		}
 		if (velocity.Y > 0) animation.Play("Fall");
 
-		Velocity = velocity;
-		MoveAndSlide();
+		
+		return velocity;
 	}
 }
