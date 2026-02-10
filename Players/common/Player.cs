@@ -23,10 +23,6 @@ public partial class Player : CharacterBody2D {
 	}
 
 	public void toggleActive() {
-		GD.Print("hello1");
-		if (!world.isCameraZoomed()) return; // disallow switching when camera zoomed out
-		GD.Print("hello2");
-		toggleCamera();
 		isActive = !isActive;
 	}
 

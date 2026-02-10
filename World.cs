@@ -17,10 +17,12 @@ public partial class World : Node2D {
 
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
-		if (Input.IsActionJustPressed("SwitchPlayer") && cameraZoomed) {
+		if (Input.IsActionJustPressed("SwitchPlayer")) {
 			activePlayer = (activePlayer +1) % 2;
 			players[0].toggleActive();
+			if (cameraZoomed) players[0].toggleCamera();
 			players[1].toggleActive();
+			if (cameraZoomed) players[1].toggleCamera();
 		}
 
 		if (Input.IsActionJustPressed("SwapCameraMode")) {
