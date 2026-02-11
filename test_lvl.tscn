@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://uw8j4mtkgdxg"]
+
+[ext_resource type="Script" uid="uid://ba75l8nu5jnn8" path="res://TestLvl.cs" id="1_65noi"]
+[ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_5kssm"]
+[ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="3_uh4n2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kssm"]
+size = Vector2(290, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sodng"]
+size = Vector2(290, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcx11"]
+size = Vector2(21, 145.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65noi"]
+size = Vector2(274.5, 23.625)
+
+[node name="TestLvl" type="Node2D" unique_id=407344745]
+script = ExtResource("1_65noi")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1056661503]
+position = Vector2(36, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=432112910]
+position = Vector2(132, 47)
+shape = SubResource("RectangleShape2D_5kssm")
+
+[node name="Panel" type="Panel" parent="StaticBody2D4" unique_id=1003789007]
+offset_left = -13.0
+offset_top = 38.0
+offset_right = 276.8
+offset_bottom = 57.000004
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2" parent="." unique_id=128728269 instance=ExtResource("2_5kssm")]
+position = Vector2(146, 15)
+
+[node name="Player1" parent="." unique_id=1496653751 instance=ExtResource("3_uh4n2")]
+position = Vector2(115, 15)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1213394241]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2022326080]
+position = Vector2(132, 47)
+shape = SubResource("RectangleShape2D_sodng")
+
+[node name="Panel" type="Panel" parent="StaticBody2D" unique_id=2010784683]
+offset_left = -13.0
+offset_top = 38.0
+offset_right = 276.8
+offset_bottom = 57.000004
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1168959021]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2102828326]
+position = Vector2(-24, -15.25)
+shape = SubResource("RectangleShape2D_vcx11")
+
+[node name="Panel" type="Panel" parent="StaticBody2D2" unique_id=509912691]
+offset_left = -35.0
+offset_top = -86.0
+offset_right = -13.0
+offset_bottom = 57.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2124083858]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2051698400]
+position = Vector2(102, -101)
+shape = SubResource("RectangleShape2D_65noi")
+
+[node name="Panel" type="Panel" parent="StaticBody2D3" unique_id=1090271488]
+offset_left = -35.0
+offset_top = -113.0
+offset_right = 241.0
+offset_bottom = -89.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=691835598]
+position = Vector2(510, -25)

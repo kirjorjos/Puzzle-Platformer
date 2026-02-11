@@ -1,10 +1,9 @@
 using Godot;
 using System;
 
-public partial class World : Node2D {
+public partial class TestLvl : Node2D
+{
 	private Camera2D camera;
-	
-	
 	private Player[] players;
 	private int activePlayer;
 	private bool cameraZoomed;

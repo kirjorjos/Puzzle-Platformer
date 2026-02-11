@@ -60,3 +60,8 @@ offset_bottom = 59.0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Goof Ball Pit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=552627719]
+position = Vector2(139, -37)
+zoom = Vector2(3.265, 3.265)

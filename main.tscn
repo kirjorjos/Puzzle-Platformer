@@ -19,5 +19,13 @@ offset_right = 728.0
 offset_bottom = 536.0
 text = "Quit"
 
+[node name="Play2" type="Button" parent="." unique_id=1615733357]
+offset_left = 840.0
+offset_top = 40.0
+offset_right = 1091.0
+offset_bottom = 153.0
+text = "test level 1"
+
 [connection signal="pressed" from="Play" to="." method="onPlayPressed"]
 [connection signal="pressed" from="Quit" to="." method="onQuitPressed"]
+[connection signal="pressed" from="Play2" to="." method="onLvl1Pressed"]
