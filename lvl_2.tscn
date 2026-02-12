@@ -13,8 +13,24 @@ size = Vector2(274.5, 23.625)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmf8x"]
 size = Vector2(192.77121, 211.26755)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxco"]
+size = Vector2(251.68457, 247.35289)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbeg1"]
 size = Vector2(274.5, 23.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7f4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beans"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22vjt"]
+size = Vector2(250.28601, 251.70538)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0ydl"]
+size = Vector2(856.86487, 3053.2607)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e03lu"]
+size = Vector2(248.48474, 247.11346)
 
 [node name="Lvl_2" type="Node2D" unique_id=1707421672]
 script = ExtResource("1_l31ol")
@@ -54,7 +70,7 @@ offset_right = 241.0
 offset_bottom = -89.0
 
 [node name="DoorLowerButton" type="Area2D" parent="." unique_id=1533704972]
-position = Vector2(216, -37.999996)
+position = Vector2(355, -76)
 scale = Vector2(0.083, 0.07100002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLowerButton" unique_id=1748495996]
@@ -66,6 +82,7 @@ shape = SubResource("RectangleShape2D_bmf8x")
 position = Vector2(0, 42.253456)
 scale = Vector2(0.9999998, 0.9999999)
 texture = ExtResource("4_f7f4c")
+flip_v = true
 
 [node name="Label1" type="Label" parent="." unique_id=699646579]
 offset_left = 192.0
@@ -76,10 +93,10 @@ text = "Button"
 
 [node name="Label2" type="Label" parent="Label1" unique_id=80687126]
 layout_mode = 0
-offset_left = 59.0
-offset_top = -25.0
-offset_right = 173.0
-offset_bottom = 156.0
+offset_left = 13.0
+offset_top = -70.0
+offset_right = 127.0
+offset_bottom = -27.0
 theme_override_font_sizes/font_size = 7
 text = "The button should open the door just long enough for the rabbit to get through, but not denimite"
 autowrap_mode = 2
@@ -124,9 +141,15 @@ theme_override_font_sizes/font_size = 20
 text = "GOAL"
 autowrap_mode = 2
 
-[node name="DoorLower" type="Sprite2D" parent="." unique_id=1870820188]
-position = Vector2(383.3125, -56.4375)
+[node name="Door1" type="StaticBody2D" parent="." unique_id=637092867]
+position = Vector2(539, -58)
 scale = Vector2(0.093499936, 0.21250002)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" unique_id=528667129]
+position = Vector2(83.06152, 20.147034)
+shape = SubResource("RectangleShape2D_7rxco")
+
+[node name="DoorLower" type="Sprite2D" parent="Door1/CollisionShape2D" unique_id=1870820188]
 texture = ExtResource("5_beans")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=512767919]
@@ -157,27 +180,62 @@ offset_top = -11.0
 offset_right = 241.12575
 offset_bottom = 13.0
 
-[node name="DoorUpperButton" type="Sprite2D" parent="." unique_id=1365896227]
+[node name="Area2D" type="Area2D" parent="." unique_id=1792285827]
 position = Vector2(459, -112.99999)
 scale = Vector2(0.0820001, 0.06999998)
+
+[node name="DoorUpperButton" type="Sprite2D" parent="Area2D" unique_id=1365896227]
+scale = Vector2(1, 1.0000001)
 texture = ExtResource("4_f7f4c")
 
-[node name="MagnetDoor" type="Sprite2D" parent="." unique_id=1981001676]
-position = Vector2(807, -123.00001)
-scale = Vector2(0.27499977, 0.08299999)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=802030914]
+scale = Vector2(11.731694, 11.857146)
+shape = SubResource("RectangleShape2D_f7f4c")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=673791707]
+position = Vector2(837, -204)
+scale = Vector2(0.076, 0.076)
+
+[node name="MechanicalPlatformButton" type="Sprite2D" parent="Area2D2" unique_id=1968706425]
+texture = ExtResource("4_f7f4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2116516841]
+scale = Vector2(12.052631, 12.052631)
+shape = SubResource("RectangleShape2D_beans")
+
+[node name="Door 2" type="StaticBody2D" parent="." unique_id=233896178]
+position = Vector2(418, -134)
+scale = Vector2(0.1038811, 0.23042814)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door 2" unique_id=2030750325]
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_22vjt")
+
+[node name="DoorUpper" type="Sprite2D" parent="Door 2" unique_id=245949031]
+scale = Vector2(1, 0.9999998)
+texture = ExtResource("5_beans")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=36660861]
+position = Vector2(796, -119)
+scale = Vector2(0.07935906, 0.006550383)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2004672933]
+position = Vector2(176.41211, -610.65234)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_t0ydl")
+
+[node name="MagnetDoor" type="Sprite2D" parent="StaticBody2D2" unique_id=1981001676]
+position = Vector2(176.41211, -610.65)
+scale = Vector2(3.4652598, 12.671013)
 texture = ExtResource("6_bmf8x")
 
-[node name="MechanicalPlatformButton" type="Sprite2D" parent="." unique_id=1968706425]
-position = Vector2(838, -208)
-scale = Vector2(0.076, 0.076)
-texture = ExtResource("4_f7f4c")
-
-[node name="DoorUpper" type="Sprite2D" parent="." unique_id=245949031]
-position = Vector2(411, -132.99998)
-scale = Vector2(0.1038811, 0.23042814)
-texture = ExtResource("5_beans")
-
-[node name="MechanicalPlatform" type="Sprite2D" parent="." unique_id=542363085]
-position = Vector2(805.78656, -103.116806)
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1534934406]
+position = Vector2(810, -103)
 scale = Vector2(0.2817074, 0.080934435)
+
+[node name="MechanicalPlatform" type="Sprite2D" parent="StaticBody2D" unique_id=542363085]
 texture = ExtResource("5_beans")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=738342467]
+position = Vector2(0.75756836, 1.4433594)
+shape = SubResource("RectangleShape2D_e03lu")
