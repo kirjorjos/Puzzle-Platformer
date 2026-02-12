@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://misuajak2txe"]
+
+[ext_resource type="Script" uid="uid://bn677l8014g8h" path="res://Lvl2.cs" id="1_l31ol"]
+[ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_bmf8x"]
+[ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="3_7rxco"]
+[ext_resource type="Texture2D" uid="uid://cc6wpxnh2lj6p" path="res://assets/stageObjects/button.png" id="4_f7f4c"]
+[ext_resource type="Texture2D" uid="uid://cilmtqvqgd3u3" path="res://assets/stageObjects/door.png" id="5_beans"]
+[ext_resource type="Texture2D" uid="uid://c1l0bmlbe6jtg" path="res://assets/stageObjects/magnetDoor.png" id="6_bmf8x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmnqu"]
+size = Vector2(274.5, 23.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbeg1"]
+size = Vector2(274.5, 23.625)
+
+[node name="Lvl_2" type="Node2D" unique_id=1707421672]
+script = ExtResource("1_l31ol")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=557425156]
+position = Vector2(42, -74)
+scale = Vector2(2.3023982, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1541473398]
+position = Vector2(102, -101)
+shape = SubResource("RectangleShape2D_tmnqu")
+
+[node name="Panel" type="Panel" parent="StaticBody2D5" unique_id=97324752]
+offset_left = -35.0
+offset_top = -113.0
+offset_right = 241.0
+offset_bottom = -89.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1659137471]
+position = Vector2(37, 86)
+scale = Vector2(3.6799998, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=886675633]
+position = Vector2(102, -101)
+shape = SubResource("RectangleShape2D_tmnqu")
+
+[node name="Panel" type="Panel" parent="StaticBody2D3" unique_id=1514290849]
+offset_left = -35.0
+offset_top = -113.0
+offset_right = 241.0
+offset_bottom = -89.0
+
+[node name="Player2" parent="." unique_id=128728269 instance=ExtResource("2_bmf8x")]
+position = Vector2(96, -61)
+
+[node name="Player1" parent="." unique_id=1496653751 instance=ExtResource("3_7rxco")]
+position = Vector2(134, -61)
+
+[node name="Label" type="Label" parent="." unique_id=699646579]
+offset_left = 192.0
+offset_top = -78.0
+offset_right = 331.0
+offset_bottom = -55.0
+text = "Button"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label" unique_id=1707482106]
+position = Vector2(24.000008, 40.000004)
+scale = Vector2(0.083, 0.07100002)
+texture = ExtResource("4_f7f4c")
+
+[node name="Label" type="Label" parent="Label" unique_id=80687126]
+layout_mode = 0
+offset_left = 59.0
+offset_top = -25.0
+offset_right = 173.0
+offset_bottom = 156.0
+theme_override_font_sizes/font_size = 7
+text = "The button should open the door just long enough for the rabbit to get through, but not denimite"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Label/Label" unique_id=1365505611]
+layout_mode = 0
+offset_left = 225.0
+offset_top = -57.0
+offset_right = 339.0
+offset_bottom = -13.0
+theme_override_font_sizes/font_size = 7
+text = "The rabbit then holds the door for denimite"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Label/Label/Label" unique_id=1972739022]
+layout_mode = 0
+offset_left = 147.0
+offset_top = -22.0
+offset_right = 261.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 7
+text = "Once the magnet is here, they use an ability function pull the magnet,  The magnet sticks out and allows the bunny to climb"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Label/Label/Label/Label" unique_id=558076563]
+layout_mode = 0
+offset_left = 169.0
+offset_top = -99.0
+offset_right = 283.0
+offset_bottom = -32.0
+theme_override_font_sizes/font_size = 7
+text = "Rabbit presses this so the magnet can climb up."
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Label/Label/Label/Label/Label" unique_id=1094664363]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 33.0
+offset_right = 241.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "GOAL"
+autowrap_mode = 2
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1870820188]
+position = Vector2(383.3125, -56.4375)
+scale = Vector2(0.093499936, 0.21250002)
+texture = ExtResource("5_beans")
+
+[node name="Door" type="Sprite2D" parent="Door" unique_id=245949031]
+position = Vector2(296.1232, -360.294)
+scale = Vector2(1.1110286, 1.0843676)
+texture = ExtResource("5_beans")
+
+[node name="Door" type="Sprite2D" parent="Door/Door" unique_id=542363085]
+position = Vector2(3800.3694, 129.68546)
+scale = Vector2(2.7118254, 0.35123503)
+texture = ExtResource("5_beans")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=512767919]
+position = Vector2(809, -116.99999)
+scale = Vector2(0.9741912, 7.1199994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1551597059]
+position = Vector2(101.88748, 1)
+shape = SubResource("RectangleShape2D_vbeg1")
+
+[node name="Panel" type="Panel" parent="StaticBody2D6" unique_id=154571983]
+offset_left = -34.87425
+offset_top = -11.0
+offset_right = 241.12575
+offset_bottom = 13.0
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1959658433]
+position = Vector2(366, -94)
+scale = Vector2(1.1823951, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1741491685]
+position = Vector2(101.88748, 1)
+shape = SubResource("RectangleShape2D_vbeg1")
+
+[node name="Panel" type="Panel" parent="StaticBody2D4" unique_id=943459253]
+offset_left = -34.87425
+offset_top = -11.0
+offset_right = 241.12575
+offset_bottom = 13.0
+
+[node name="Button" type="Sprite2D" parent="." unique_id=1365896227]
+position = Vector2(459, -112.99999)
+scale = Vector2(0.0820001, 0.06999998)
+texture = ExtResource("4_f7f4c")
+
+[node name="MagnetDoor" type="Sprite2D" parent="." unique_id=1981001676]
+position = Vector2(807, -123.00001)
+scale = Vector2(0.27499977, 0.08299999)
+texture = ExtResource("6_bmf8x")
+
+[node name="Button2" type="Sprite2D" parent="." unique_id=1968706425]
+position = Vector2(838, -208)
+scale = Vector2(0.076, 0.076)
+texture = ExtResource("4_f7f4c")

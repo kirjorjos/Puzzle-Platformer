@@ -22,13 +22,20 @@ size = Vector2(274.5, 23.625)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqxh8"]
 size = Vector2(290, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgwbx"]
+size = Vector2(119.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn5kb"]
+size = Vector2(71, 64)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lfre"]
-size = Vector2(264, 66)
+size = Vector2(413, 66)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dgwbx"]
 font_size = 10
 
 [node name="TestLvl" type="Node2D" unique_id=407344745]
+position = Vector2(-130, 84)
 script = ExtResource("1_65noi")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=821712966]
@@ -119,18 +126,58 @@ offset_right = 276.8
 offset_bottom = 57.000004
 metadata/_edit_use_anchors_ = true
 
+[node name="StaticBody2D10" type="StaticBody2D" parent="." unique_id=74246708]
+position = Vector2(497, -125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10" unique_id=651658101]
+position = Vector2(-89.25, 20)
+shape = SubResource("RectangleShape2D_dgwbx")
+
+[node name="Panel" type="Panel" parent="StaticBody2D10" unique_id=971651951]
+offset_left = -149.0
+offset_top = 5.0
+offset_right = -28.0
+offset_bottom = 35.0
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="." unique_id=1291688053]
+position = Vector2(1152, 704)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9" unique_id=946093279]
+position = Vector2(-598, -757)
+shape = SubResource("RectangleShape2D_mn5kb")
+
+[node name="Panel" type="Panel" parent="StaticBody2D9" unique_id=969745455]
+offset_left = -634.0
+offset_top = -789.0
+offset_right = -562.0
+offset_bottom = -730.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="." unique_id=1225885033]
+position = Vector2(576, 352)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8" unique_id=858431600]
+position = Vector2(137, -343)
+shape = SubResource("RectangleShape2D_mn5kb")
+
+[node name="Panel" type="Panel" parent="StaticBody2D8" unique_id=1450902239]
+offset_left = 101.0
+offset_top = -375.0
+offset_right = 173.0
+offset_bottom = -316.0
+
 [node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=1443226886]
 position = Vector2(288, 176)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=634018017]
-position = Vector2(325, -108)
+position = Vector2(301.5, -109)
 shape = SubResource("RectangleShape2D_8lfre")
 
 [node name="Panel" type="Panel" parent="StaticBody2D7" unique_id=2032510058]
-offset_left = 193.0
-offset_top = -143.0
-offset_right = 456.0
-offset_bottom = -74.0
+offset_left = 95.0
+offset_top = -142.0
+offset_right = 508.0
+offset_bottom = -73.0
 
 [node name="Label" type="Label" parent="." unique_id=942793645]
 offset_left = 46.0
@@ -147,8 +194,28 @@ label_settings = SubResource("LabelSettings_dgwbx")
 layout_mode = 0
 offset_left = 200.0
 offset_top = 10.0
-offset_right = 376.0
-offset_bottom = 85.0
+offset_right = 274.0
+offset_bottom = 25.0
 theme_override_font_sizes/font_size = 12
 text = "space to jump"
 label_settings = SubResource("LabelSettings_dgwbx")
+
+[node name="Label2" type="Label" parent="." unique_id=257386149]
+offset_left = 462.0
+offset_top = -20.0
+offset_right = 611.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Press Tab to switch characters,
+ bring your buddy over"
+
+[node name="Label" type="Label" parent="Label2" unique_id=335204714]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.268
+anchor_bottom = 0.25
+offset_left = -126.0
+offset_top = -135.0
+offset_right = -125.932
+offset_bottom = -123.5
+text = "You need both chara"
