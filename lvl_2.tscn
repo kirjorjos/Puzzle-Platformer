@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cc6wpxnh2lj6p" path="res://assets/stageObjects/button.png" id="4_f7f4c"]
 [ext_resource type="Texture2D" uid="uid://cilmtqvqgd3u3" path="res://assets/stageObjects/door.png" id="5_beans"]
 [ext_resource type="Texture2D" uid="uid://c1l0bmlbe6jtg" path="res://assets/stageObjects/magnetDoor.png" id="6_bmf8x"]
+[ext_resource type="Texture2D" uid="uid://bapak5jofhiku" path="res://assets/stageObjects/platform2.png" id="6_f7f4c"]
+[ext_resource type="Texture2D" uid="uid://mo35tkflim63" path="res://assets/stageObjects/platformSlim.png" id="8_beans"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmnqu"]
 size = Vector2(274.5, 23.625)
@@ -31,6 +33,9 @@ size = Vector2(856.86487, 3053.2607)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e03lu"]
 size = Vector2(248.48474, 247.11346)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tmnqu"]
+load_path = "res://.godot/imported/platformSlim.png-e5f87b6f1d0ed0250ab3fab2eb3392cb.ctex"
 
 [node name="Lvl_2" type="Node2D" unique_id=1707421672]
 script = ExtResource("1_l31ol")
@@ -215,6 +220,11 @@ shape = SubResource("RectangleShape2D_22vjt")
 scale = Vector2(1, 0.9999998)
 texture = ExtResource("5_beans")
 
+[node name="Platform2" type="Sprite2D" parent="." unique_id=991199997]
+position = Vector2(908.75, -110)
+scale = Vector2(1.3629441, 1.7872341)
+texture = ExtResource("6_f7f4c")
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=36660861]
 position = Vector2(796, -119)
 scale = Vector2(0.07935906, 0.006550383)
@@ -239,3 +249,28 @@ texture = ExtResource("5_beans")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=738342467]
 position = Vector2(0.75756836, 1.4433594)
 shape = SubResource("RectangleShape2D_e03lu")
+
+[node name="PlatformSlim4" type="Sprite2D" parent="." unique_id=8787388]
+position = Vector2(123.50001, -178.18668)
+scale = Vector2(0.8636363, 0.39533305)
+texture = SubResource("CompressedTexture2D_tmnqu")
+
+[node name="PlatformSlim3" type="Sprite2D" parent="." unique_id=426166420]
+position = Vector2(438.02005, -178.6)
+scale = Vector2(0.8289842, 0.3850001)
+texture = SubResource("CompressedTexture2D_tmnqu")
+
+[node name="PlatformSlim" type="Sprite2D" parent="." unique_id=1248744089]
+position = Vector2(487, -93.00001)
+scale = Vector2(0.8716577, 0.30000013)
+texture = SubResource("CompressedTexture2D_tmnqu")
+
+[node name="PlatformSlim2" type="Sprite2D" parent="." unique_id=700537207]
+position = Vector2(155, 1)
+scale = Vector2(1.3235294, 0.6875)
+texture = ExtResource("8_beans")
+
+[node name="PlatformSlim2" type="Sprite2D" parent="PlatformSlim2" unique_id=679379292]
+position = Vector2(434.28333, 0.06817913)
+scale = Vector2(1.3243908, 1.0164772)
+texture = ExtResource("8_beans")
