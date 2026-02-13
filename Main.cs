@@ -15,4 +15,9 @@ public partial class Main : Node2D
 	public void onLvl1Pressed() {
 		GetTree().ChangeSceneToFile("res://test_lvl.tscn");
 	}
+
+	public void onLvl2Pressed() {
+		GetTree().ChangeSceneToFile("res://lvl_2.tscn");
+	}
+
 }

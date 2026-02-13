@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://misuajak2txe"]
 
 [ext_resource type="Script" uid="uid://bn677l8014g8h" path="res://Lvl2.cs" id="1_l31ol"]
+[ext_resource type="Texture2D" uid="uid://b83w4niw1w7ue" path="res://assets/player1/fall/peel2.png" id="2_beans"]
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_bmf8x"]
 [ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="3_7rxco"]
 [ext_resource type="Texture2D" uid="uid://cc6wpxnh2lj6p" path="res://assets/stageObjects/button.png" id="4_f7f4c"]
@@ -8,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c1l0bmlbe6jtg" path="res://assets/stageObjects/magnetDoor.png" id="6_bmf8x"]
 [ext_resource type="Texture2D" uid="uid://bapak5jofhiku" path="res://assets/stageObjects/platform2.png" id="6_f7f4c"]
 [ext_resource type="Texture2D" uid="uid://mo35tkflim63" path="res://assets/stageObjects/platformSlim.png" id="8_beans"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7f4c"]
+load_path = "res://.godot/imported/Trashpilebg2.png-449e8be75365987e57b9b829fee66c48.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmnqu"]
 size = Vector2(274.5, 23.625)
@@ -39,6 +43,24 @@ load_path = "res://.godot/imported/platformSlim.png-e5f87b6f1d0ed0250ab3fab2eb33
 
 [node name="Lvl_2" type="Node2D" unique_id=1707421672]
 script = ExtResource("1_l31ol")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1352369530]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=1070614691]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(18, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D" unique_id=1469896011]
+position = Vector2(560, 382)
+scale = Vector2(0.113100044, 0.11659195)
+texture = SubResource("CompressedTexture2D_f7f4c")
+
+[node name="Peel2" type="Sprite2D" parent="CanvasLayer/Parallax2D" unique_id=1877889695]
+position = Vector2(559.50006, 334)
+scale = Vector2(0.062090993, 0.06372549)
+texture = ExtResource("2_beans")
 
 [node name="Player1" parent="." unique_id=1496653751 instance=ExtResource("3_7rxco")]
 position = Vector2(134, -61)

@@ -26,6 +26,15 @@ offset_right = 1091.0
 offset_bottom = 153.0
 text = "test level 1"
 
+[node name="Button" type="Button" parent="." unique_id=2008320627]
+offset_left = 852.0
+offset_top = 204.0
+offset_right = 1040.0
+offset_bottom = 307.0
+text = "lvl2
+"
+
 [connection signal="pressed" from="Play" to="." method="onPlayPressed"]
 [connection signal="pressed" from="Quit" to="." method="onQuitPressed"]
 [connection signal="pressed" from="Play2" to="." method="onLvl1Pressed"]
+[connection signal="pressed" from="Button" to="." method="onLvl2Pressed"]

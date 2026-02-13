@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://uw8j4mtkgdxg"]
 
-[ext_resource type="Script" path="res://TestLvl.cs" id="1_65noi"]
+[ext_resource type="Script" uid="uid://ba75l8nu5jnn8" path="res://TestLvl.cs" id="1_65noi"]
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_5kssm"]
 [ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="3_uh4n2"]
+[ext_resource type="Texture2D" uid="uid://b83w4niw1w7ue" path="res://assets/player1/fall/peel2.png" id="4_5kssm"]
+[ext_resource type="Texture2D" uid="uid://slpio71fxfe1" path="res://assets/stageObjects/corngun.png" id="4_qqxh8"]
+[ext_resource type="Texture2D" uid="uid://dctfjev7ugmvu" path="res://assets/stageObjects/platformM.png" id="5_8lfre"]
+[ext_resource type="Texture2D" uid="uid://mo35tkflim63" path="res://assets/stageObjects/platformSlim.png" id="6_dgwbx"]
+[ext_resource type="Texture2D" uid="uid://bapak5jofhiku" path="res://assets/stageObjects/platform2.png" id="8_mn5kb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uh4n2"]
 size = Vector2(290, 20)
@@ -19,9 +24,6 @@ size = Vector2(21, 145.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65noi"]
 size = Vector2(274.5, 23.625)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqxh8"]
-size = Vector2(290, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dgwbx"]
 size = Vector2(119.5, 30)
 
@@ -33,6 +35,9 @@ size = Vector2(413, 66)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dgwbx"]
 font_size = 10
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uh4n2"]
+load_path = "res://.godot/imported/Trashpilebg2.png-449e8be75365987e57b9b829fee66c48.ctex"
 
 [node name="TestLvl" type="Node2D" unique_id=407344745]
 position = Vector2(-130, 84)
@@ -112,20 +117,6 @@ offset_bottom = -89.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691835598]
 position = Vector2(510, -25)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=718463351]
-position = Vector2(72, 44)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1658135080]
-position = Vector2(132, 47)
-shape = SubResource("RectangleShape2D_qqxh8")
-
-[node name="Panel" type="Panel" parent="StaticBody2D5" unique_id=277509543]
-offset_left = -13.0
-offset_top = 38.0
-offset_right = 276.8
-offset_bottom = 57.000004
-metadata/_edit_use_anchors_ = true
-
 [node name="StaticBody2D10" type="StaticBody2D" parent="." unique_id=74246708]
 position = Vector2(497, -125)
 
@@ -200,6 +191,22 @@ theme_override_font_sizes/font_size = 12
 text = "space to jump"
 label_settings = SubResource("LabelSettings_dgwbx")
 
+[node name="Corngun" type="Sprite2D" parent="Label" unique_id=617994662]
+position = Vector2(-44.999992, -92.00001)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("4_qqxh8")
+
+[node name="PlatformM" type="Sprite2D" parent="Label" unique_id=66984260]
+position = Vector2(362, -43.999996)
+scale = Vector2(0.32085556, 0.31914893)
+texture = ExtResource("5_8lfre")
+
+[node name="PlatformSlim" type="Sprite2D" parent="." unique_id=1058421466]
+position = Vector2(-25, -22)
+rotation = 1.5707964
+scale = Vector2(0.36185378, 0.3166668)
+texture = ExtResource("6_dgwbx")
+
 [node name="Label2" type="Label" parent="." unique_id=257386149]
 offset_left = 462.0
 offset_top = -20.0
@@ -219,3 +226,55 @@ offset_top = -135.0
 offset_right = -125.932
 offset_bottom = -123.5
 text = "You need both chara"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Label2/Label" unique_id=14446656]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="Label2/Label/CanvasLayer" unique_id=541492755]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(18, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="Label2/Label/CanvasLayer/Parallax2D" unique_id=278174047]
+position = Vector2(560, 382)
+scale = Vector2(0.113100044, 0.11659195)
+texture = SubResource("CompressedTexture2D_uh4n2")
+
+[node name="Peel2" type="Sprite2D" parent="Label2/Label/CanvasLayer/Parallax2D" unique_id=272851488]
+position = Vector2(559.50006, 334)
+scale = Vector2(0.062090993, 0.06372549)
+texture = ExtResource("4_5kssm")
+
+[node name="PlatformSlim2" type="Sprite2D" parent="." unique_id=1088267922]
+position = Vector2(101.5, -98.5)
+scale = Vector2(0.7406417, 0.3125)
+texture = ExtResource("6_dgwbx")
+
+[node name="Platform3" type="Sprite2D" parent="." unique_id=1212414357]
+position = Vector2(553.75, -51.5)
+scale = Vector2(0.35786802, 0.71276593)
+texture = ExtResource("8_mn5kb")
+
+[node name="Platform4" type="Sprite2D" parent="." unique_id=1666973214]
+position = Vector2(714, 10)
+scale = Vector2(0.37563467, 0.7234042)
+texture = ExtResource("8_mn5kb")
+
+[node name="PlatformM" type="Sprite2D" parent="." unique_id=1653371754]
+position = Vector2(589.5, 80)
+scale = Vector2(1.1256684, 1)
+texture = ExtResource("5_8lfre")
+
+[node name="PlatformSlim3" type="Sprite2D" parent="." unique_id=2082494634]
+position = Vector2(127, 98)
+texture = ExtResource("6_dgwbx")
+
+[node name="Platform2" type="Sprite2D" parent="." unique_id=574968491]
+position = Vector2(120.25, 84)
+scale = Vector2(1.606599, 1)
+texture = ExtResource("8_mn5kb")
+
+[node name="Platform2" type="Sprite2D" parent="Platform2" unique_id=633271784]
+position = Vector2(121.84123, 65)
+scale = Vector2(1.606599, 1)
+texture = ExtResource("8_mn5kb")
