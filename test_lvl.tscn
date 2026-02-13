@@ -117,6 +117,21 @@ offset_bottom = -89.0
 position = Vector2(510, -25)
 enabled = false
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=718463351]
+position = Vector2(72, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1658135080]
+position = Vector2(132, 47)
+shape = SubResource("RectangleShape2D_qqxh8")
+
+[node name="Panel" type="Panel" parent="StaticBody2D5" unique_id=277509543]
+offset_left = -13.0
+offset_top = 38.0
+offset_right = 276.8
+offset_bottom = 57.000004
+metadata/_edit_use_anchors_ = true
+
+
 [node name="StaticBody2D10" type="StaticBody2D" parent="." unique_id=74246708]
 position = Vector2(497, -125)
 

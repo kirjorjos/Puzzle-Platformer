@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://misuajak2txe"]
 
 
+
 [ext_resource type="Script" uid="uid://bn677l8014g8h" path="res://Lvl2.cs" id="1_l31ol"]
 [ext_resource type="Texture2D" uid="uid://b83w4niw1w7ue" path="res://assets/player1/fall/peel2.png" id="2_beans"]
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_bmf8x"]
@@ -44,6 +45,7 @@ load_path = "res://.godot/imported/platformSlim.png-e5f87b6f1d0ed0250ab3fab2eb33
 
 [node name="Lvl_2" type="Node2D" unique_id=1707421672]
 
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1352369530]
 layer = -1
 follow_viewport_enabled = true
@@ -61,6 +63,7 @@ texture = SubResource("CompressedTexture2D_f7f4c")
 position = Vector2(559.50006, 334)
 scale = Vector2(0.062090993, 0.06372549)
 texture = ExtResource("2_beans")
+
 
 [node name="Player1" parent="." unique_id=1496653751 instance=ExtResource("3_7rxco")]
 position = Vector2(134, -61)
