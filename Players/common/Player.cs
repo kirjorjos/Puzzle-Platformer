@@ -36,14 +36,13 @@ public partial class Player : CharacterBody2D {
 
 		if (isActive) velocity = HandleActiveMovement(velocity, delta);
 
-		MoveAndSlide();
 		Velocity = velocity;
+		MoveAndSlide();
 		
 	}
 
 	protected Vector2 HandlePassiveMovement(Vector2 velocity, double delta) {
 		// Add the gravity.
-		GD.Print(isActive);
 		if (!IsOnFloor()) {
 			velocity += GetGravity() * (float) delta;
 			if (velocity.Y > 0) animation.Play("Fall");
@@ -71,7 +70,7 @@ public partial class Player : CharacterBody2D {
 
 		// flip the sprite based on last movement direction
 		if (horizontalDirection < 0) animation.FlipH = true;
-		if (horizontalDirection > 0) animation.FlipH = true;
+		if (horizontalDirection > 0) animation.FlipH = false;
 
 		if (horizontalDirection == 0) { // neither left or right is held
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
