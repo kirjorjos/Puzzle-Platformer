@@ -6,9 +6,8 @@ public partial class Player : CharacterBody2D {
 	public const float JumpVelocity = -400.0f;
 
 	protected bool isActive;
-	private AnimatedSprite2D animation;
+	protected AnimatedSprite2D animation;
 	private Camera2D camera;
-	private World world;
 
 	protected Player(bool startActive) {
 		isActive = startActive;
@@ -19,7 +18,6 @@ public partial class Player : CharacterBody2D {
 		animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animation.Play("Idle");
 		camera = GetNode<Camera2D>("Camera2D");
-		world = GetNode<World>("..");
 	}
 
 	public void toggleActive() {
@@ -40,44 +38,53 @@ public partial class Player : CharacterBody2D {
 
 		MoveAndSlide();
 		Velocity = velocity;
-
 		
 	}
 
-	public Vector2 HandlePassiveMovement(Vector2 velocity, double delta) {
+	protected Vector2 HandlePassiveMovement(Vector2 velocity, double delta) {
 		// Add the gravity.
 		GD.Print(isActive);
 		if (!IsOnFloor()) {
 			velocity += GetGravity() * (float) delta;
+			if (velocity.Y > 0) animation.Play("Fall");
 		}
 		return velocity;
 	}
 
-	private Vector2 HandleActiveMovement(Vector2 velocity, double delta) {
-		// Handle Jump.
+	protected virtual Vector2 HandleActiveMovement(Vector2 velocity, double delta) {
+		velocity = HandleAction(velocity, delta);
+		velocity = HandleJump(velocity, delta);
+		velocity = HandleHorizontalMovement(velocity, delta);
+		return velocity;
+	}
+
+	protected Vector2 HandleJump(Vector2 velocity, double delta) {
 		if (Input.IsActionJustPressed("MoveUp") && IsOnFloor()) {
 			velocity.Y = JumpVelocity;
 			animation.Play("Jump");
 		}
+		return velocity;
+	}
 
-		// flip the sprite when moving left
+	protected Vector2 HandleHorizontalMovement(Vector2 velocity, double delta) {
 		float horizontalDirection = Input.GetAxis("MoveLeft", "MoveRight");
-		GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = (horizontalDirection < 0);
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("MoveLeft", "MoveRight", "MoveUp", "MoveDown");
-		if (direction != Vector2.Zero) {
-			velocity.X = direction.X * Speed;
-			animation.Play("Run");
-		}
-		else {
+		// flip the sprite based on last movement direction
+		if (horizontalDirection < 0) animation.FlipH = true;
+		if (horizontalDirection > 0) animation.FlipH = true;
+
+		if (horizontalDirection == 0) { // neither left or right is held
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			if (velocity.Y == 0) animation.Play("Idle");
+		} else {
+			velocity.X = horizontalDirection * Speed;
+			animation.Play("Run");
 		}
-		if (velocity.Y > 0) animation.Play("Fall");
+		return velocity;
+	}
 
-		
+	// Does nothing in base class, overridden in sub classes
+	protected virtual Vector2 HandleAction(Vector2 velocity, double delta) {
 		return velocity;
 	}
 }
