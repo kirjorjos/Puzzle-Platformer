@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://uw8j4mtkgdxg"]
 
-[ext_resource type="Script" path="res://TestLvl.cs" id="1_65noi"]
 [ext_resource type="PackedScene" uid="uid://bm6knus1bonag" path="res://Players/player2/Player2.tscn" id="2_5kssm"]
 [ext_resource type="PackedScene" uid="uid://bxogriaucisqi" path="res://Players/player1/Player1.tscn" id="3_uh4n2"]
 
@@ -35,8 +34,6 @@ size = Vector2(413, 66)
 font_size = 10
 
 [node name="TestLvl" type="Node2D" unique_id=407344745]
-position = Vector2(-130, 84)
-script = ExtResource("1_65noi")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=821712966]
 position = Vector2(144, 88)
@@ -111,6 +108,7 @@ offset_bottom = -89.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691835598]
 position = Vector2(510, -25)
+enabled = false
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=718463351]
 position = Vector2(72, 44)

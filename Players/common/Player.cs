@@ -8,6 +8,7 @@ public partial class Player : CharacterBody2D {
 	protected bool isActive;
 	protected AnimatedSprite2D animation;
 	private Camera2D camera;
+	protected Player other;
 
 	protected Player(bool startActive) {
 		isActive = startActive;
@@ -25,6 +26,7 @@ public partial class Player : CharacterBody2D {
 	}
 
 	public void toggleCamera() {
+		GD.Print(3);
 		camera.Enabled = !camera.Enabled;
 	}
 
@@ -35,6 +37,9 @@ public partial class Player : CharacterBody2D {
 		velocity = HandlePassiveMovement(velocity, delta);
 
 		if (isActive) velocity = HandleActiveMovement(velocity, delta);
+
+		HandleCameraLogic();
+		HandleSwitchPlayer();
 
 		Velocity = velocity;
 		MoveAndSlide();
@@ -85,5 +90,27 @@ public partial class Player : CharacterBody2D {
 	// Does nothing in base class, overridden in sub classes
 	protected virtual Vector2 HandleAction(Vector2 velocity, double delta) {
 		return velocity;
+	}
+
+	private void HandleSwitchPlayer() {
+		if (Input.IsActionJustPressed("SwitchPlayer")) {
+			isActive = !isActive;
+			if (DataHolder.cameraZoomed) {
+				toggleCamera();
+			}
+		}
+	}
+
+	private void HandleCameraLogic() {
+		if (Input.IsActionJustPressed("SwapCameraMode")) {
+			GD.Print(1);
+			if (isActive) {
+				GD.Print(2);
+				toggleCamera();
+				Camera2D camera = GetNode<Camera2D>("../Camera2D");
+				camera.Enabled = !camera.Enabled;
+				DataHolder.cameraZoomed = !DataHolder.cameraZoomed;
+			}
+		}
 	}
 }
