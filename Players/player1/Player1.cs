@@ -21,7 +21,7 @@ public partial class Player1 : Player {
 		} else { // player let go of button
 			charging = false;
 			animation.Play("Idle");
-			velocity = storedVelocity;
+			velocity.X = storedVelocity.X;
 		}
 		return velocity;
 	}
